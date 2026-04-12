@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Phillip Wendyll Belenzo | Remote CX & Escalation Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #18181f;
+    --accent: #00e5a0;
+    --accent2: #00b8ff;
+    --text: #f0f0f5;
+    --muted: #8888a0;
+    --border: rgba(255,255,255,0.07);
+    --card: rgba(255,255,255,0.04);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'DM Sans',sans-serif;
+    font-weight:400;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Syne',sans-serif;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.2rem 5vw;
+    background:rgba(10,10,15,0.85);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-logo{
+    font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;
+    letter-spacing:0.05em;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .nav-links{display:flex;gap:2rem;}
+  .nav-links a{
+    color:var(--muted);font-size:0.85rem;text-decoration:none;
+    letter-spacing:0.04em;transition:color 0.2s;
+  }
+  .nav-links a:hover{color:var(--accent);}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    display:flex;align-items:center;
+    padding:6rem 5vw 4rem;
+    position:relative;overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,229,160,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(0,184,255,0.05) 0%, transparent 70%);
+  }
+  .hero-grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+  .hero-content{position:relative;max-width:720px;}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:0.5rem;
+    background:rgba(0,229,160,0.1);
+    border:1px solid rgba(0,229,160,0.25);
+    border-radius:100px;padding:0.35rem 1rem;
+    font-size:0.78rem;color:var(--accent);letter-spacing:0.06em;
+    margin-bottom:1.5rem;
+    animation:fadeUp 0.6s ease both;
+  }
+  .hero-badge::before{
+    content:'';width:6px;height:6px;border-radius:50%;
+    background:var(--accent);animation:pulse 2s infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  .hero h1{
+    font-size:clamp(2.8rem,6vw,5rem);
+    font-weight:800;line-height:1.05;
+    letter-spacing:-0.02em;
+    animation:fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 span{
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .hero-sub{
+    margin-top:1.5rem;font-size:1.1rem;color:var(--muted);
+    max-width:560px;animation:fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-cta{
+    margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;
+    animation:fadeUp 0.6s 0.3s ease both;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:0.5rem;
+    padding:0.75rem 1.75rem;border-radius:8px;
+    font-family:'Syne',sans-serif;font-weight:600;font-size:0.9rem;
+    text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;
+  }
+  .btn-primary{
+    background:var(--accent);color:#0a0a0f;
+  }
+  .btn-primary:hover{background:#00ffb0;transform:translateY(-2px);}
+  .btn-outline{
+    background:transparent;color:var(--text);
+    border:1px solid var(--border);
+  }
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+  .hero-meta{
+    margin-top:3rem;display:flex;gap:2rem;flex-wrap:wrap;
+    animation:fadeUp 0.6s 0.4s ease both;
+  }
+  .meta-item{display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--muted);}
+  .meta-icon{font-size:0.9rem;}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+  /* SECTIONS */
+  section{padding:5rem 5vw;}
+  .section-label{
+    font-size:0.75rem;letter-spacing:0.15em;color:var(--accent);
+    font-family:'Syne',sans-serif;font-weight:600;
+    text-transform:uppercase;margin-bottom:0.75rem;
+  }
+  .section-title{
+    font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;
+    line-height:1.15;margin-bottom:1rem;
+  }
+  .section-desc{color:var(--muted);max-width:560px;margin-bottom:3rem;}
+  .divider{height:1px;background:var(--border);margin:0 5vw;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+  @media(max-width:720px){.about-grid{grid-template-columns:1fr;}}
+  .about-text p{color:var(--muted);margin-bottom:1rem;line-height:1.8;}
+  .about-text strong{color:var(--text);}
+  .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .stat-card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:12px;padding:1.25rem;
+  }
+  .stat-num{
+    font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .stat-label{font-size:0.8rem;color:var(--muted);margin-top:0.25rem;}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;}
+  .skill-card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:12px;padding:1.25rem 1.5rem;
+    display:flex;align-items:flex-start;gap:1rem;
+    transition:border-color 0.2s,transform 0.2s;
+  }
+  .skill-card:hover{border-color:rgba(0,229,160,0.3);transform:translateY(-2px);}
+  .skill-icon{
+    width:36px;height:36px;border-radius:8px;
+    background:rgba(0,229,160,0.1);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1rem;flex-shrink:0;
+  }
+  .skill-name{font-weight:500;font-size:0.9rem;line-height:1.4;}
+
+  /* EXPERIENCE */
+  .exp-list{display:flex;flex-direction:column;gap:1.5rem;}
+  .exp-card{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:16px;padding:1.75rem;
+    transition:border-color 0.2s;
+  }
+  .exp-card:hover{border-color:rgba(0,229,160,0.25);}
+  .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem;}
+  .exp-company{
+    font-size:0.75rem;letter-spacing:0.08em;color:var(--accent);
+    font-family:'Syne',sans-serif;font-weight:600;text-transform:uppercase;
+  }
+  .exp-date{
+    font-size:0.78rem;color:var(--muted);
+    background:var(--bg3);border:1px solid var(--border);
+    border-radius:100px;padding:0.25rem 0.75rem;
+  }
+  .exp-role{font-size:1.1rem;font-weight:700;margin-bottom:1rem;}
+  .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+  .exp-bullets li{
+    font-size:0.9rem;color:var(--muted);padding-left:1.25rem;position:relative;
+  }
+  .exp-bullets li::before{
+    content:'→';position:absolute;left:0;color:var(--accent);font-size:0.8rem;top:0.05rem;
+  }
+  .exp-bullets li strong{color:var(--text);}
+  .badge{
+    display:inline-flex;align-items:center;
+    background:rgba(0,184,255,0.1);border:1px solid rgba(0,184,255,0.2);
+    color:#00b8ff;font-size:0.72rem;letter-spacing:0.04em;
+    border-radius:100px;padding:0.2rem 0.6rem;margin-right:0.4rem;margin-top:0.75rem;
+  }
+
+  /* CTA / CONTACT */
+  .contact-section{
+    background:var(--bg2);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    text-align:center;
+  }
+  .contact-section .section-desc{margin-left:auto;margin-right:auto;}
+  .contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;}
+  .contact-item{
+    display:flex;align-items:center;gap:0.6rem;
+    background:var(--card);border:1px solid var(--border);
+    border-radius:10px;padding:0.75rem 1.25rem;
+    color:var(--text);text-decoration:none;font-size:0.88rem;
+    transition:border-color 0.2s,color 0.2s;
+  }
+  .contact-item:hover{border-color:var(--accent);color:var(--accent);}
+  .availability{
+    display:inline-flex;align-items:center;gap:0.5rem;
+    margin-top:2rem;padding:0.6rem 1.5rem;
+    background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);
+    border-radius:100px;font-size:0.85rem;color:var(--accent);
+  }
+  .avail-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+
+  /* FOOTER */
+  footer{
+    text-align:center;padding:2rem 5vw;
+    font-size:0.8rem;color:var(--muted);
+  }
+
+  /* SCROLL REVEAL */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+  .revealed{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">PWB</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Available Immediately · Remote · Philippines (UTC+8)</div>
+    <h1>Phillip Wendyll<br/><span>Belenzo</span></h1>
+    <p class="hero-sub">Customer Escalation Specialist & CX Leader with 2+ years resolving high-stakes support scenarios — fully remote, always on.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">📩 Hire Me Remotely</a>
+      <a href="#experience" class="btn btn-outline">View Experience</a>
+    </div>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-icon">📍</span> Tabaco, Bicol Region, PH</div>
+      <div class="meta-item"><span class="meta-icon">💻</span> Standard Laptop + Stable Internet</div>
+      <div class="meta-item"><span class="meta-icon">🌐</span> WFH / Fully Remote Only</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">Customer Experience Professional<br/>Built for Remote Work</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm a remote-first CX and escalation specialist based in the Philippines, with a track record of turning high-pressure customer situations into <strong>brand loyalty moments</strong>. My background spans Tier 1 & Tier 2 support, escalation management, and outbound lead generation.</p>
+      <p>I've consistently <strong>maintained CSAT above target</strong> while coaching teammates, optimizing escalation pathways, and handling the toughest customer conversations. I use tools like <strong>Salesforce, Microsoft 365 Copilot, and Canva for Work</strong> to stay efficient and professional in every interaction.</p>
+      <p>My setup: a reliable laptop and a stable internet connection — everything a remote-first team needs from day one.</p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-card">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Years Remote BPO Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">T1 & T2</div>
+        <div class="stat-label">Support Tiers Handled</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">✓</div>
+        <div class="stat-label">CSAT Consistently Above Target</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">WFH</div>
+        <div class="stat-label">100% Remote Ready · UTC+8</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="reveal">
+    <p class="section-label">Core Competencies</p>
+    <h2 class="section-title">Skills That Drive Results</h2>
+    <p class="section-desc">Built through real remote BPO experience — not just buzzwords.</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon">🔥</div>
+      <div class="skill-name">High-Risk Customer Escalation Management & Resolution</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🕊️</div>
+      <div class="skill-name">Verbal De-escalation & Conflict Resolution (maintaining CSAT above target)</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">💛</div>
+      <div class="skill-name">Empathy-Driven Customer Experience (CX) & Client Care Excellence</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🎯</div>
+      <div class="skill-name">Tier 1 & Tier 2 Support</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">📞</div>
+      <div class="skill-name">Lead Generation Calls & Outbound Prospecting</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-name">Remote Collaboration & CRM Tools (Salesforce)</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🔁</div>
+      <div class="skill-name">Process Improvement & Escalation Pathway Optimization</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🏆</div>
+      <div class="skill-name">Agent Coaching & Mentoring</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">CSAT / KPI / QA Management</div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">Microsoft 365 Copilot, Canva for Work, AI Tools</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="reveal">
+    <p class="section-label">Work Experience</p>
+    <h2 class="section-title">Where I've Delivered</h2>
+    <p class="section-desc">Every role — fully remote, every result — measurable.</p>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-company">Support Squad</div>
+        <div class="exp-date">Jul 2025 – Nov 2025 · Remote</div>
+      </div>
+      <div class="exp-role">Lead Generation Calls Specialist</div>
+      <ul class="exp-bullets">
+        <li>Conducted high-volume outbound prospecting calls, consistently meeting and exceeding lead generation KPIs in a fully remote environment.</li>
+        <li>Applied rapport-building and active listening techniques to <strong>qualify leads and advance prospects</strong> through the sales pipeline.</li>
+        <li>Maintained detailed CRM records and collaborated asynchronously with team leads to optimize outreach scripts and conversion rates.</li>
+        <li>Leveraged remote-first tools and Microsoft 365 Copilot to streamline daily workflows and reporting tasks.</li>
+      </ul>
+      <div><span class="badge">Lead Generation</span><span class="badge">Outbound Calls</span><span class="badge">CRM</span><span class="badge">KPI Management</span></div>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-company">Sutherland Global Services Ltd.</div>
+        <div class="exp-date">Oct 2023 – Jul 2025 · On-site</div>
+      </div>
+      <div class="exp-role">Customer Service Representative (Tier 1 & Tier 2) & Escalation Specialist</div>
+      <ul class="exp-bullets">
+        <li>Managed high-risk customer escalations end-to-end, applying verbal de-escalation techniques that consistently <strong>kept CSAT scores above target thresholds</strong>.</li>
+        <li>Handled Tier 1 & Tier 2 support tickets, resolving complex technical and billing issues with <strong>first-contact resolution focus</strong>.</li>
+        <li>Championed empathy-driven CX practices — turning frustrated customers into satisfied, loyal brand advocates.</li>
+        <li>Collaborated on escalation pathway optimization projects, reducing average handle time and improving agent handoff quality.</li>
+        <li>Mentored and coached junior agents on de-escalation, QA standards, and KPI achievement.</li>
+        <li>Utilized Salesforce CRM for accurate case logging, tracking, and escalation documentation across all support channels.</li>
+      </ul>
+      <div><span class="badge">Escalation Management</span><span class="badge">Tier 1 & 2</span><span class="badge">De-escalation</span><span class="badge">Salesforce</span><span class="badge">QA</span><span class="badge">Coaching</span></div>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-company">Sutherland Global Services Ltd.</div>
+        <div class="exp-date">Earlier · On-site</div>
+      </div>
+      <div class="exp-role">Customer Service Account Representative</div>
+      <ul class="exp-bullets">
+        <li>Delivered consistent Tier 1 customer support across inbound channels, building a strong foundation in <strong>BPO operations and CX best practices</strong>.</li>
+        <li>Maintained accurate account records and followed structured escalation protocols to ensure seamless customer journeys.</li>
+        <li>Developed a strong work ethic and discipline in a fast-paced, high-volume call center environment.</li>
+      </ul>
+      <div><span class="badge">Customer Service</span><span class="badge">BPO</span><span class="badge">Inbound Support</span><span class="badge">On-site</span></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="reveal">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Ready to Start Immediately</h2>
+    <p class="section-desc">I'm available now for fully remote customer support, escalation, CX, BPO, lead generation, or team lead roles. Standard laptop + stable internet — zero ramp-up time needed.</p>
+  </div>
+  <div class="contact-links reveal">
+    <a class="contact-item" href="mailto:belenzophillipwendyll@gmail.com">
+      📧 belenzophillipwendyll@gmail.com
+    </a>
+    <a class="contact-item" href="https://www.linkedin.com/in/phillipwendyll-belenzo-71b024368" target="_blank">
+      💼 LinkedIn Profile
+    </a>
+  </div>
+  <div class="reveal" style="margin-top:1.5rem;">
+    <div class="availability">
+      <div class="avail-dot"></div>
+      Available Immediately · Philippines Standard Time (UTC+8)
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Phillip Wendyll Belenzo · Tabaco, Bicol Region, Philippines · Remote Only</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('revealed'); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
