@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phillip Wendyll Belenzo | Remote CX & Escalation Specialist</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/fontsource-inter@5.0.19/index.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/fontsource-space-grotesk@5.0.18/index.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #0ea5e9;
+            --accent-dark: #0284c7;
+            --accent-light: #e0f2fe;
+            --text: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0ea5e9 100%);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: var(--white) !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-cta:hover { background: var(--accent-dark) !important; transform: translateY(-1px); }
+        .nav-cta::after { display: none !important; }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            background: none;
+            border: none;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 70px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content { animation: slideUp 0.8s ease-out; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(14,165,233,0.15);
+            border: 1px solid rgba(14,165,233,0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-badge .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(14,165,233,0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(14,165,233,0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .hero-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+        }
+
+        .info-item .icon {
+            font-size: 1rem;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .profile-frame {
+            position: relative;
+            width: 380px;
+            height: 380px;
+        }
+
+        .profile-frame::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), transparent, var(--accent));
+            animation: rotate 6s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            font-size: 0.8rem;
+            color: var(--white);
+            z-index: 2;
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        .floating-card.card-1 { top: 10%; right: -10%; animation-delay: 0s; }
+        .floating-card.card-2 { bottom: 15%; left: -15%; animation-delay: 2s; }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--gray-50);
+            padding: 3rem 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-number .accent { color: var(--accent); }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent-dark);
+            padding: 0.375rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about { background: var(--white); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--gray-50);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-card {
+            background: var(--gradient);
+            border-radius: 24px;
+            padding: 3rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(14,165,233,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .about-card-stat {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2rem;
+        }
+
+        .about-card-stat:last-child { margin-bottom: 0; }
+
+        .about-card-stat h4 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .about-card-stat p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Skills Section */
+        .skills { background: var(--gray-50); }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .skill-card:hover::before { transform: scaleX(1); }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-light);
+            border-radius: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.05rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Experience Section */
+        .experience { background: var(--white); }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gray-200);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .timeline-item:last-child { padding-bottom: 0; }
+
+        .timeline-dot {
+            position: absolute;
+            left: -8px;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--accent-light);
+        }
+
+        .timeline-card {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-light);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .timeline-company {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .timeline-role {
+            font-size: 0.95rem;
+            color: var(--accent-dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .timeline-desc {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .timeline-desc li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .timeline-desc li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .timeline-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .tag {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(14,165,233,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact .section-tag {
+            background: rgba(14,165,233,0.2);
+            color: var(--accent);
+        }
+
+        .contact .section-title { color: var(--white); }
+        .contact .section-desc { color: rgba(255,255,255,0.8); }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-link .link-icon {
+            font-size: 1.25rem;
+        }
+
+        .contact-availability {
+            margin-top: 2rem;
+            padding: 1.25rem;
+            background: rgba(16,185,129,0.15);
+            border: 1px solid rgba(16,185,129,0.3);
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #a7f3d0;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            padding: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-content { order: 2; }
+            .hero-image { order: 1; }
+
+            .hero h1 { font-size: 2.5rem; }
+            .hero-subtitle { margin: 0 auto 2rem; }
+            .hero-buttons { justify-content: center; }
+            .hero-info { justify-content: center; }
+
+            .profile-frame { width: 280px; height: 280px; }
+
+            .about-grid { grid-template-columns: 1fr; }
+
+            .stats-container { grid-template-columns: repeat(2, 1fr); }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(15,23,42,0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                pointer-events: none;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .mobile-toggle { display: flex; }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .stats-container { grid-template-columns: 1fr 1fr; }
+            .about-features { grid-template-columns: 1fr; }
+            .contact-info { flex-direction: column; align-items: center; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">P<span>W</span>B</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="pulse"></span>
+                    Available Immediately · Remote · Philippines (UTC+8)
+                </div>
+                <h1>Phillip Wendyll <span class="highlight">Belenzo</span></h1>
+                <p class="hero-subtitle">
+                    Customer Escalation Specialist & CX Leader with 2+ years resolving high-stakes support scenarios — fully remote, always on.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">📩 Hire Me Remotely</a>
+                    <a href="#experience" class="btn btn-outline">View Experience ↓</a>
+                </div>
+                <div class="hero-info">
+                    <span class="info-item"><span class="icon">📍</span> Tabaco, Bicol Region, PH</span>
+                    <span class="info-item"><span class="icon">💻</span> Standard Laptop + Stable Internet</span>
+                    <span class="info-item"><span class="icon"></span> WFH / Fully Remote Only</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-frame">
+                    <!-- IMAGE SOURCE UPDATED TO LOCAL PATH -->
+                    <img src="images/profile.jpg" alt="Phillip Wendyll Belenzo" class="profile-img">
+                    <div class="floating-card card-1"> 2+ Years Exp</div>
+                    <div class="floating-card card-2">🏆 CSAT Above Target</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card reveal">
+                <div class="stat-number">2<span class="accent">+</span></div>
+                <div class="stat-label">Years Remote BPO Experience</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number">T1<span class="accent">&</span>T2</div>
+                <div class="stat-label">Support Tiers Handled</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number"><span class="accent">✓</span>CSAT</div>
+                <div class="stat-label">Consistently Above Target</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number"><span class="accent">100%</span></div>
+                <div class="stat-label">Remote Ready · UTC+8</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Customer Experience Professional</h2>
+                <p class="section-desc">Built for Remote Work</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-content reveal">
+                    <h3>Turning high-pressure situations into brand loyalty moments</h3>
+                    <p>
+                        I'm a remote-first CX and escalation specialist based in the Philippines, with a track record of turning high-pressure customer situations into brand loyalty moments. My background spans Tier 1 & Tier 2 support, escalation management, and outbound lead generation.
+                    </p>
+                    <p>
+                        I've consistently maintained CSAT above target while coaching teammates, optimizing escalation pathways, and handling the toughest customer conversations. I use tools like Salesforce, Microsoft 365 Copilot, and Canva for Work to stay efficient and professional in every interaction.
+                    </p>
+                    <p>
+                        My setup: a reliable laptop and a stable internet connection — everything a remote-first team needs from day one.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <span class="feature-icon"></span>
+                            WFH Ready
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon"></span>
+                            UTC+8
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💻</span>
+                            Reliable Setup
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🚀</span>
+                            Zero Ramp-up
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image reveal">
+                    <div class="about-image-card">
+                        <div class="about-card-stat">
+                            <h4>2+</h4>
+                            <p>Years Remote BPO Experience</p>
+                        </div>
+                        <div class="about-card-stat">
+                            <h4>T1 & T2</h4>
+                            <p>Support Tiers Handled</p>
+                        </div>
+                        <div class="about-card-stat">
+                            <h4>✓ CSAT</h4>
+                            <p>Consistently Above Target</p>
+                        </div>
+                        <div class="about-card-stat">
+                            <h4>100%</h4>
+                            <p>Remote Ready · UTC+8</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-tag">Core Competencies</span>
+                <h2 class="section-title">Skills That Drive Results</h2>
+                <p class="section-desc">Built through real remote BPO experience — not just buzzwords.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <div class="skill-icon"></div>
+                    <h3>High-Risk Escalation Management</h3>
+                    <p>End-to-end resolution of critical customer escalations with proven de-escalation techniques.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">🕊️</div>
+                    <h3>Verbal De-escalation & Conflict Resolution</h3>
+                    <p>Maintaining CSAT above target through empathetic, professional communication.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon"></div>
+                    <h3>Empathy-Driven Customer Experience</h3>
+                    <p>Turning frustrated customers into satisfied, loyal brand advocates through genuine care.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">🎯</div>
+                    <h3>Tier 1 & Tier 2 Support</h3>
+                    <p>First-contact resolution focus for complex technical and billing issues across all tiers.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">📞</div>
+                    <h3>Lead Generation & Outbound Prospecting</h3>
+                    <p>High-volume outbound calling with consistent KPI achievement and pipeline advancement.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">🤝</div>
+                    <h3>Remote Collaboration & CRM</h3>
+                    <p>Expert in Salesforce, Microsoft 365 Copilot, Canva for Work, and AI-powered tools.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">🔁</div>
+                    <h3>Process Improvement</h3>
+                    <p>Optimizing escalation pathways to reduce handle time and improve handoff quality.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">🏆</div>
+                    <h3>Agent Coaching & Mentoring</h3>
+                    <p>Training junior agents on de-escalation, QA standards, and KPI achievement.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon"></div>
+                    <h3>CSAT / KPI / QA Management</h3>
+                    <p>Data-driven approach to maintaining and exceeding quality and satisfaction metrics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-tag">Work Experience</span>
+                <h2 class="section-title">Where I've Delivered</h2>
+                <p class="section-desc">Every role — fully remote, every result — measurable.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-company">Support Squad</div>
+                                <div class="timeline-role">Lead Generation Calls Specialist</div>
+                            </div>
+                            <span class="timeline-date">Jul 2025 – Nov 2025 · Remote</span>
+                        </div>
+                        <ul class="timeline-desc">
+                            <li>Conducted high-volume outbound prospecting calls, consistently meeting and exceeding lead generation KPIs in a fully remote environment.</li>
+                            <li>Applied rapport-building and active listening techniques to qualify leads and advance prospects through the sales pipeline.</li>
+                            <li>Maintained detailed CRM records and collaborated asynchronously with team leads to optimize outreach scripts and conversion rates.</li>
+                            <li>Leveraged remote-first tools and Microsoft 365 Copilot to streamline daily workflows and reporting tasks.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Lead Generation</span>
+                            <span class="tag">Outbound Calls</span>
+                            <span class="tag">CRM</span>
+                            <span class="tag">KPI Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-company">Sutherland Global Services Ltd.</div>
+                                <div class="timeline-role">Customer Service Representative (Tier 1 & Tier 2) & Escalation Specialist</div>
+                            </div>
+                            <span class="timeline-date">Oct 2023 – Jul 2025</span>
+                        </div>
+                        <ul class="timeline-desc">
+                            <li>Managed high-risk customer escalations end-to-end, applying verbal de-escalation techniques that consistently kept CSAT scores above target thresholds.</li>
+                            <li>Handled Tier 1 & Tier 2 support tickets, resolving complex technical and billing issues with first-contact resolution focus.</li>
+                            <li>Championed empathy-driven CX practices — turning frustrated customers into satisfied, loyal brand advocates.</li>
+                            <li>Collaborated on escalation pathway optimization projects, reducing average handle time and improving agent handoff quality.</li>
+                            <li>Mentored and coached junior agents on de-escalation, QA standards, and KPI achievement.</li>
+                            <li>Utilized Salesforce CRM for accurate case logging, tracking, and escalation documentation across all support channels.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Escalation Management</span>
+                            <span class="tag">Tier 1 & 2</span>
+                            <span class="tag">De-escalation</span>
+                            <span class="tag">Salesforce</span>
+                            <span class="tag">QA</span>
+                            <span class="tag">Coaching</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <div class="timeline-company">Sutherland Global Services Ltd.</div>
+                                <div class="timeline-role">Customer Service Account Representative</div>
+                            </div>
+                            <span class="timeline-date">Earlier</span>
+                        </div>
+                        <ul class="timeline-desc">
+                            <li>Delivered consistent Tier 1 customer support across inbound channels, building a strong foundation in BPO operations and CX best practices.</li>
+                            <li>Maintained accurate account records and followed structured escalation protocols to ensure seamless customer journeys.</li>
+                            <li>Developed a strong work ethic and discipline in a fast-paced, high-volume call center environment.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Customer Service</span>
+                            <span class="tag">BPO</span>
+                            <span class="tag">Inbound Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="contact-container">
+            <div class="section-header reveal">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Ready to Start Immediately</h2>
+                <p class="section-desc">
+                    I'm available now for fully remote customer support, escalation, CX, BPO, lead generation, or team lead roles. Standard laptop + stable internet — zero ramp-up time needed.
+                </p>
+            </div>
+            <div class="contact-info reveal">
+                <a href="mailto:belenzophillipwendyll@gmail.com" class="contact-link">
+                    <span class="link-icon">📧</span>
+                    belenzophillipwendyll@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/phillipwendyll-belenzo-71b024368" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <span class="link-icon">💼</span>
+                    LinkedIn Profile
+                </a>
+            </div>
+            <div class="contact-availability reveal">
+                <span class="pulse" style="background: #a7f3d0;"></span>
+                Available Immediately · Philippines Standard Time (UTC+8)
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Phillip Wendyll Belenzo · Tabaco, Bicol Region, Philippines · Remote Only</p>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile nav on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, index * 100);
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
